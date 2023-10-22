@@ -1,7 +1,7 @@
 <?php 
     /**DB include*/
     $conn ='';
-    include "db.php";
+    include "../../confs/head.php";
 
     if(isset($_POST["submit"]))
     {
@@ -12,13 +12,13 @@
             $query = 'INSERT INTO user (id_user, username, password, address, ICO, DIC, email, telefonne_cislo, user_role) VALUES(?,?,?,?,?,?,?,?,?)';
             $id=0;
             $username = $_POST["username"];
-            $password = $_POST["password"];
+            $password = hash("md5",$_POST["password"]);
             $address = $_POST["address"];
             $ico = $_POST["ICO"];
             $dic = $_POST["DIC"];
             $email = $_POST["email"];
             $tel = $_POST["telefonne_cislo"];
-            $user_role = $_POST["user_role"];
+
 
 
             $stmt = mysqli_stmt_init($conn);
@@ -33,13 +33,13 @@
         $query = 'INSERT INTO user (id_user, username, password, address, ICO, DIC, email, telefonne_cislo, user_role) VALUES(?,?,?,?,?,?,?,?,?)';
         $id=0;
         $username = $_POST["username"];
-        $password = $_POST["password"];
+        $password = hash("md5",$_POST["password"]);
         $address = $_POST["address"];
         $ico = $_POST["ICO"];
         $dic = $_POST["DIC"];
         $email = $_POST["email"];
         $tel = $_POST["telefonne_cislo"];
-        $user_role = $_POST["user_role"];
+        
 
 
         $stmt = mysqli_stmt_init($conn);
@@ -50,6 +50,8 @@
     }    
         
     }
+
+    echo "<h1>Prosím počkajte, na potvrdzovací email</h1>";
     
 
 
