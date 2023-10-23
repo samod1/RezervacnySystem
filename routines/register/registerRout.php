@@ -30,7 +30,7 @@
     else
     {
         $user_role='student';
-        $query = 'INSERT INTO user (id_user, username, password, address, ICO, DIC, email, telefonne_cislo, user_role) VALUES(?,?,?,?,?,?,?,?,?)';
+        $query = 'INSERT INTO user (id_user, username, password, address, ICO, DIC, email, telefonne_cislo, user_role,name,surname) VALUES(?,?,?,?,?,?,?,?,?,?,?)';
         $id=0;
         $username = $_POST["username"];
         $password = hash("md5",$_POST["password"]);
@@ -39,12 +39,14 @@
         $dic = $_POST["DIC"];
         $email = $_POST["email"];
         $tel = $_POST["telefonne_cislo"];
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
         
 
 
         $stmt = mysqli_stmt_init($conn);
         mysqli_stmt_prepare($stmt,$query);
-        mysqli_stmt_bind_param($stmt,'isssissss',$id,$username,$password,$address,$ico,$dic,$email,$tel,$user_role);
+        mysqli_stmt_bind_param($stmt,'isssissssss',$id,$username,$password,$address,$ico,$dic,$email,$tel,$user_role,$name,$surname);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }    

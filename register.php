@@ -34,6 +34,22 @@
                     <label>Telefonne cislo</label>
                     <input class="form-control form-control-lg" type="text" name="telefonne_cislo" required>
                 </div>
+                <div class="row">
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label>Meno</label>
+                        <input class="form-control form-control-lg" type="text" name="name" required>
+                    </div>        
+                </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Priezvisko</label>
+                            <input class="form-control form-control-lg" type="text" name="surname" required>
+                        </div>   
+                    </div>
+
+                </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-6">
@@ -42,7 +58,6 @@
                         <div class="col-6">
                             <input class="btn btn-lg btn-block btn-secondary" type="reset">
                         </div>
-                        <!-- TODO Doplnit polia pre meno a priezvisko -->
                     </div>
                 </div>
             </form>
