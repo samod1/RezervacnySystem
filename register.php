@@ -42,7 +42,7 @@
                         <div class="col-6">
                             <input class="btn btn-lg btn-block btn-secondary" type="reset">
                         </div>
-                        
+                        <!-- TODO Doplnit polia pre meno a priezvisko -->
                     </div>
                 </div>
             </form>

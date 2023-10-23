@@ -52,6 +52,9 @@
     }
 
     echo "<h1>Prosím počkajte, na potvrdzovací email</h1>";
+
+    //TODO doplnit vsetky polia 
+    //TODO dokokncit aktivacny mail. :)
     
 
 
