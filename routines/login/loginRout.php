@@ -1,29 +1,56 @@
-<?
+<?php
 $conn="";
 include "../../confs/head.php";
 
-if(isset($POST["send"]) && isset($POST["username"]) && isset($POST["password"])) 
+if(isset($_POST["send"]) && isset($_POST["username"]) && isset($_POST["password"])) 
 {
+    //$password = $_POST['password'];
     $password = hash("md5",$_POST["password"]);
-    $query = "SELECT * from USERS where username =". $POST['username']." and ". $password;
+    $query = "SELECT username  FROM user WHERE username ='". $_POST['username']."' and password ='". $password ."'";
+    echo $query;
     $result = mysqli_query($conn,$query);
-    $count = mysqli_num_rows($result);
+    //$count = mysqli_num_rows($result);
 
-    if($count != 0)
+   if($result)
     {
-        header("Location: index.php");
-    }
+            $count = mysqli_num_rows($result);
 
+            if($count != 0)
+            {
+                header("Location: ../../dashboard.php");
+            ?> 
+            
+                <p>Prihlasenie prebehlo uspesne, ak vas nepresmeruje na dashboard prosim kliknite na tento <a href='../../dashboard.php'>odkaz</a></p> 
+            
+            <?php
+                session_start();
+                while($row = mysqli_fetch_assoc($result))
+                {
+                    echo $row['username'];
+                    $_SESSION['username'] = $row['username'];
+                    //$_SESSION = $row['username'];    
+                }
+
+        }
+
+        else
+        {
+            header("Location: ../../index.php");
+        }
+
+    }
     else
     {
-        header("Location: dashboard.php");
-        echo "<p>Prihlasenie prebehlo uspesne, ak vas nepresmeruje na dashboard prosim kliknite na tento <a href='dashboard.php'>odkaz</a></p>";
+        echo "pri vykonavani SQL operacie nastala chyba!";
     }
+    
+    //echo $count;
+    
 }
 
 else
 {
-        header("Location: www.google.sk");
+        header("Location: https://www.google.sk");
 }
 
 
