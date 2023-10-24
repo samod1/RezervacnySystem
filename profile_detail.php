@@ -1,32 +1,33 @@
 <?php
+    session_start();
     $conn = "";
     include "confs/head.php";
-    session_start();
+    
 
     /* SQL pre zistenie mena pouzivatela */
     
     $query= "SELECT id_user, username, password, address, ICO, DIC, email, telefonne_cislo, user_role, name, surname FROM user WHERE username='".$_SESSION["username"]."'";
     $result = mysqli_query($conn,$query);
 ?>
-
+    <h1>Informácie o používateľovi</h1>
 <?php
     while($row=mysqli_fetch_assoc($result))
     {
-        echo $row['username'];
+        echo "Používateľské meno: ". $row['username'];
         echo "<br>";
-        echo $row['address'];
+        echo "Adresa: ". $row['address'];
         echo "<br>";
-        echo $row['ICO'];
+        echo "IČO: ". $row['ICO'];
         echo "<br>";
-        echo $row['DIC'];
+        echo "DIČ: ". $row['DIC'];
         echo "<br>";
-        echo $row['email'];
+        echo "E-mailová adresa: ". $row['email'];
         echo "<br>";
-        echo $row['telefonne_cislo'];
+        echo "Telefónne číslo: ". $row['telefonne_cislo'];
         echo "<br>";
-        echo $row['name'];
+        echo "Meno: ". $row['name'];
         echo "<br>";
-        echo $row['surname'];
+        echo "Priezvisko: ". $row['surname'];
         
 
 
