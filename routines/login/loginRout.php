@@ -6,7 +6,7 @@ if(isset($_POST["send"]) && isset($_POST["username"]) && isset($_POST["password"
 {
     //$password = $_POST['password'];
     $password = hash("md5",$_POST["password"]);
-    $query = "SELECT username  FROM user WHERE username ='". $_POST['username']."' and password ='". $password ."'";
+    $query = "SELECT username, user_role  FROM user WHERE username ='". $_POST['username']."' and password ='". $password ."'";
     echo $query;
     $result = mysqli_query($conn,$query);
     //$count = mysqli_num_rows($result);
@@ -28,6 +28,7 @@ if(isset($_POST["send"]) && isset($_POST["username"]) && isset($_POST["password"
                 {
                     echo $row['username'];
                     $_SESSION['username'] = $row['username'];
+                    $_SESSION['user_role'] = $row['user_role'];
                     //$_SESSION = $row['username'];    
                 }
 
