@@ -13,7 +13,7 @@
         
     </div>
     <?php
-        if(isset($_SESSION['username']))
+        if(isset($_SESSION['username']) && isset($_SESSION['user_role']))
             {
                 include "navbar_for_signed.php";
             }
