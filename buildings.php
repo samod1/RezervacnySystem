@@ -37,7 +37,7 @@ if(session_status() !== PHP_SESSION_ACTIVE) {
                     <td><?php echo $row["created"]." - ".$row["username"]." ".$row['surname']?></td>
                     <td><a class="btn btn-danger" href="routines/common/delete.php?id=<?php echo $row['id_building']?>&type=building">Zmazat</a></td>
                     <td><a class="btn btn-success" href="#?<?php echo $row['id_building']?>">Prehliadat budovu</a></td>
-                    <td><a class="btn btn-warning" href="#?<?php echo $row['id_building']?>">Pridat miestnost do budovy</a></td>
+                    <td><a class="btn btn-warning" href="create_room.php?id=<?php echo $row['id_building']?>">Pridat miestnost do budovy</a></td>
                     <td><a class="btn btn-info" href="#?<?php echo $row['id_building']?>">Upravit budovu</a></td>
                     <td>
                 </tr>
