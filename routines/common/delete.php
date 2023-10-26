@@ -13,7 +13,7 @@
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
 
-        
+        //nana
         header("Location: ../../buildings.php");
     }
 
